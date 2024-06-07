@@ -47,7 +47,7 @@ def home():
         user_info = db.users.find_one({'useremail' :payload.get('useremail')})
         user_role = user_info['role']
         return render_template('index.html', user_role = user_role)
-    except jwt.ExpiredSignatureError:
+    except jwt.exceptions.ExpiredSignatureError:
         msg = 'Your token has expired'
         return redirect(url_for('halaman_login',msg = msg))
     except jwt.exceptions.DecodeError:

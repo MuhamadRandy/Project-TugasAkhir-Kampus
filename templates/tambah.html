@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='icon.png') }}" type="image/x-ico">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+        </script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+        </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+        integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous">
+        </script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+    <!-- font family -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;800&display=swap" rel="stylesheet">
+
+
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <!-- <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" /> -->
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Sweet alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- CK Editor -->
+    <script src="https://cdn.ckeditor.com/ckeditor5/41.3.1/classic/ckeditor.js"></script>
+    <!-- <script type="text/javascript" src="../static/ckeditor/ckeditor.js"></script> -->
+
+
+    <!-- Contoh referensi Summernote -->
+    <link rel="stylesheet" href="../static/summernote/summernote-lite.css">
+    <script src="../static/summernote/summernote-lite.js"></script>
+    <script src="../static/summernote/summernote-lite.js.map"></script>
+
+
+    <title>Puncak Nusantara</title>
+    <style>
+        body {
+            background-color: #f3f4f5;
+        }
+
+
+        /* Navbar styles */
+        .navbar {
+            background-color: #17594A;
+            padding: 1rem 0;
+        }
+
+        .container {
+            max-width: 1500px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .menu {
+            list-style: none;
+            display: flex;
+        }
+
+        .menu button {
+            text-decoration: none;
+            color: white;
+            transition: color 0.3s;
+            height: 50px;
+            width: 150px;
+            margin-right: 1rem;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        .menu button:hover {
+            color: black;
+            background-color: white;
+        }
+
+        .home-footer {
+            width: auto;
+            height: auto;
+            background-color: white;
+            margin: auto auto auto auto;
+            padding: 20px;
+            position: relative;
+        }
+
+        .row {
+            max-width: 1500px;
+            margin: 0 auto;
+            display: flex;
+        }
+
+        .home-footer1 {
+            width: 100%;
+            height: 30px;
+            background-color: black;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        .konten-gunung {
+            width: 100%;
+            height: auto;
+            margin: auto auto auto auto;
+            padding: 10px;
+            background-size: cover;
+            min-height: 10vh;
+
+            /* background-color: white; */
+            background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://images.unsplash.com/photo-1592741217769-2d961d29102c?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+        }
+
+        .form-input {
+            width: 90%;
+            margin: 50px auto;
+            /* Center horizontally */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            /* Set height to 100% of the viewport height for vertical centering */
+        }
+
+        .card {
+            padding: 20px;
+        }
+
+        input {
+            width: 100%;
+            height: 38px;
+        }
+
+        /* textarea {
+            height: 210px;
+        } */
+
+        label {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 40px;
+        }
+
+        h6 {
+            font-size: 20px;
+        }
+    </style>
+
+    <script>
+        function posting() {
+            let nama_gunung = $('#nama-gunung').val()
+            let provinsi_gunung = $('#provinsi-gunung').val()
+            let ketinggian_gunung = $('#ketinggian-gunung').val()
+            let link_gmaps = $('#link-gmaps').val()
+            let link_iframe = $('#link-iframe').val()
+            let deskripsi_umum = $('#deskripsi-umum').val()
+            let deskripsi_perlengkapan = $('#deskripsi-perlengkapan').val()
+            let deskripsi_peringatan = $('#deskripsi-peringatan').val()
+            let gambar_gunung = $("#gambar-gunung").prop("files")[0];
+
+            if (nama_gunung && provinsi_gunung && ketinggian_gunung && link_gmaps && link_iframe && deskripsi_umum &&
+                deskripsi_peringatan && deskripsi_perlengkapan) {
+                let form_data = new FormData();
+
+                form_data.append("file_give", gambar_gunung);
+                form_data.append("name_give", nama_gunung);
+                form_data.append("provinsi_give", provinsi_gunung);
+                form_data.append("ketinggian_give", ketinggian_gunung);
+                form_data.append("gmaps_give", link_gmaps);
+                form_data.append("iframe_give", link_iframe);
+                form_data.append("deskripsiUmum_give", deskripsi_umum);
+                form_data.append("deskripsiPerlengkapan_give", deskripsi_perlengkapan);
+                form_data.append("deskripsiPeringatan_give", deskripsi_peringatan);
+
+                $.ajax({
+                    type: "POST",
+                    url: "/tambah_gunung",
+                    data: form_data,
+                    contentType: false,
+                    processData: false,
+                    success: function (response) {
+                        if (response['result'] === 'success') {
+                            if (response['result'] === 'success') {
+                                Swal.fire({
+                                    title: "Berhasil!",
+                                    text: response['msg'],
+                                    icon: "success",
+                                    showConfirmButton: false,
+                                    timer: 3000
+                                });
+                                // Menunda pengalihan halaman selama 3 detik
+                                setTimeout(function () {
+                                    window.location.href = '/';
+                                }, 3000);
+                            }
+                        }
+                    },
+                });
+            } else {
+                Swal.fire({
+                    icon: "warning",
+                    title: "Pastikan semua data terisi",
+                    showConfirmButton: false,
+                    timer: 2000
+                });
+                return
+            }
+        }
+
+        function logout() {
+            $.removeCookie('mytoken', {
+                path: '/'
+            })
+            Swal.fire({
+                title: "Anda telah logout",
+                text: "Kami menanti kedatanganmu kembali 😊",
+                icon: "success",
+                showConfirmButton: false,
+                timer: 3000
+            });
+
+            // Menunda pengalihan halaman selama 3 detik
+            setTimeout(function () {
+                window.location.href = '/halaman_login';
+            }, 3000);
+        }
+    </script>
+
+
+</head>
+
+<body>
+
+    <nav class="navbar sticky-top">
+        <div class="container">
+            <div class="brand">
+                <img src="static/l-white.png" alt="" width="237px" height="62px">
+            </div>
+            <ul class="menu px-2">
+                <button onclick="window.location.href='/'" type="button" class="btn btn-outline-light">Home</button>
+                <button onclick="logout()" type="button" class="btn btn-outline-light">Logout</button>
+        </div>
+        </ul>
+        </div>
+    </nav>
+
+    <!-- <div class="text-center mb-3 pb-3 mt-5">
+        <h6 class="text-success text-uppercase" style="letter-spacing: 5px;">FORM</h6>
+        <h2>TAMBAH DATA GUNUNG</h2>
+    </div> -->
+
+    <div class="konten-gunung">
+        <div class="row">
+
+            <div class="form-input">
+                <div class="card w-100" style="border-radius: 1em;">
+                    <div class="text-center mb-3 pb-3 mt-4">
+                        <h6 class="text-success text-uppercase" style="letter-spacing: 5px;">FORM</h6>
+                        <h2>TAMBAH DATA GUNUNG</h2>
+                    </div>
+                    <hr>
+                    <section class="card-body mt-3">
+                        <div class="row">
+                            <div class="col-3 mb-4">
+                                <label for="nama-gunung" class="form-label">Nama Gunung</label>
+                                <input type="text" class="form-control" id="nama-gunung"
+                                    placeholder="Input some values">
+                            </div>
+                            <div class="col-3">
+                                <div class="mb-4">
+                                    <label for="provinsi-gunung" class="form-label">Provinsi</label>
+                                    <input type="text" class="form-control" id="provinsi-gunung"
+                                        placeholder="Input some values">
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="mb-4">
+                                    <label for="ketinggian-gunung" class="form-label">Ketinggian
+                                        Gunung</label>
+                                    <input type="text" class="form-control" id="ketinggian-gunung"
+                                        placeholder="Input some values">
+                                </div>
+                            </div>
+                            <div class="col-4 mb-4">
+                                <label for="gambar-gunung" class="form-label">Gambar Gunung</label>
+                                <input class="form-control form-control" id="gambar-gunung" type="file">
+                            </div>
+                            <div class="mb-4">
+                                <label for="link-gmaps" class="form-label">Link GMaps</label>
+                                <input type="text" class="form-control" id="link-gmaps" placeholder="Input some values">
+                            </div>
+                            <div class="mb-5">
+                                <label for="link-iframe" class="form-label">Link Iframe Gmaps</label>
+                                <input type="text" class="form-control" id="link-iframe"
+                                    placeholder="Input some values">
+                            </div>
+                            <!-- <label for="basic-url" class="form-label">Link GMaps</label>
+                                    <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon3">https://www.google.com/maps</span>
+                                    <input type="text" class="form-control" id="basic-url"
+                                        aria-describedby="basic-addon3">
+                                </div>
+                                <label for="basic-url" class="form-label">Link Iframe</label>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon3">https://example.com/users/</span>
+                                    <input type="text" class="form-control" id="basic-url"
+                                        aria-describedby="basic-addon3">
+                                </div> -->
+                            <!-- <div class="col-6">
+                                <div class="mb-3">
+                                    <label for="deskripsi-umum" class="form-label ckeditor">Deskripsi Tempat</label>
+                                    <textarea class="form-control ckeditor" id="deskripsi-umum" rows="3"
+                                        placeholder="Input some values"></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="deskripsi-perlengkapan" class="form-label ckeditor">Perlengkapan yang
+                                        harus
+                                        dibawa</label>
+                                    <textarea class="form-control ckeditor" id="deskripsi-perlengkapan"
+                                        rows="3"></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="deskripsi-peringatan" class="form-label ckeditor">Peringatan dan
+                                        Larangan</label>
+                                    <textarea class="form-control ckeditor" id="deskripsi-peringatan"
+                                    rows="3"></textarea>
+                                </div>
+                            </div> -->
+                        </div>
+                        <div class="mb-5">
+                            <label for="deskripsi-umum" class="form-label ckeditor">Deskripsi Tempat</label>
+                            <textarea class="my-textarea" id="deskripsi-umum"
+                                placeholder="Input some values"></textarea>
+                        </div>
+                        <div class="mb-5">
+                            <label for="deskripsi-perlengkapan" class="form-label ckeditor">Perlengkapan yang harus
+                                dibawa</label>
+                            <textarea class="my-textarea" id="deskripsi-perlengkapan" rows="3"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="deskripsi-peringatan" class="form-label ckeditor">Peringatan dan
+                                Larangan</label>
+                            <textarea class="my-textarea" id="deskripsi-peringatan" rows="3"></textarea>
+                        </div>
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end" style="height: 50px;">
+                            <button onclick="posting()" class="btn btn-success me-md-2" type="button"
+                                style="width: 100%;">Simpan</button>
+                            <button onclick="window.location.href='/'" class="btn btn-secondary"
+                                type="button">Kembali</button>
+                        </div>
+
+                    </section>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="home-footer">
+        <div class="row">
+            <img alt="logo" src="static/footer.png" class="col-8 mt" width="auto"
+                style="align-items: center; object-fit: contain;" />
+            <div class="col 4 - text text-center">
+                <b>Group 8 CISCO</b> <br>
+                Arif Dwi Prasetya <br>
+                Rifki Achmad Fahriza <br>
+                Muhamad Randy Aranda <br>
+                Jonathan Natanael Salakay <br>
+            </div>
+        </div>
+    </footer>
+    <footer class="home-footer1">
+        <span class="home-text11">
+            © Develop by StudentX | Part of LearningX
+        </span>
+    </footer>
+
+    <!-- Inisialisasi Summernote menggunakan class 'my-textarea' -->
+    <script>
+        $(document).ready(function () {
+            // Panggil Summernote menggunakan class my-textarea
+            $('.my-textarea').summernote({
+                height: 'auto', // Sesuaikan dengan kebutuhan tinggi yang diinginkan
+                minHeight: 150, // Tinggi minimum
+                maxHeight: 500, // Tinggi maksimum
+                overflowY: 'auto', // Overflow-y untuk menampilkan scrollbar jika diperlukan
+
+            });
+        });
+    </script>
+
+</body>
+
+</html>

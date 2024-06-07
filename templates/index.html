@@ -1,0 +1,699 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='icon.png') }}" type="image/x-ico">
+    <meta property="og:title" content="Puncak Nusantara - Back to Nature" >
+    <meta property="og:description" content="Website pencarian informasi gunung di Indonesia" >
+    <meta property="og:image" content="static/bg_gunung.jpg" >
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+        </script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+        </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+        integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous">
+        </script>
+
+    <!-- font family -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <!-- <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet"> -->
+    <!-- <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" /> -->
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Sweet alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <title>Puncak Nusantara</title>
+    <style>
+        body {
+            background-color: #f3f4f5;
+        }
+
+
+        /* search */
+        .form-input {
+            display: flex;
+            align-items: center;
+            height: 60px;
+        }
+
+        .form-input input {
+            flex-grow: 1;
+            padding: 0 16px;
+            height: 100%;
+            border: none;
+            background: white;
+            border-radius: 36px 0 0 36px;
+            outline: none;
+            width: 100%;
+            color: black;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .form-input button {
+            width: 100px;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #17594A;
+            color: white;
+            font-size: 30px;
+            border: none;
+            outline: none;
+            border-radius: 0 36px 36px 0;
+            cursor: pointer;
+        }
+
+        /* search */
+
+
+        /* .mypic {
+            width: 100%;
+            height: 900px;
+            background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.genius.com/b02dcf8d433c17835920672adcea707d.999x999x1.png');
+            background-position: center;
+            background-size: cover;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        .mypic>button {
+            width: 200px;
+            height: 50px;
+            background-color: transparent;
+            color: white;
+            border-radius: 50px;
+            border: 1px solid white;
+            margin-top: 10px;
+        }
+
+        .mypic>button:hover {
+            border: 2px solid white;
+        } */
+
+
+        .konten-gunung {
+            width: 100%;
+            margin: 10px auto 10px auto;
+            padding: 20px;
+            background-size: cover;
+            /* background-color: white; */
+            background-image: linear-gradient(0deg, rgba(239, 239, 239, 0.5), rgba(239, 239, 239, 0.5)), url("https://images.unsplash.com/photo-1592741217769-2d961d29102c?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+        }
+
+        .content-zoom h5 {
+            font-weight: bold;
+        }
+
+        .card a{
+            color: black;
+        }
+
+        .card a:hover{
+            color: white;
+        }
+
+        .content-zoom section:hover {
+            transform: scale(1.03);
+            border-radius: 1rem;
+            transition: .3s;
+            /* box-shadow: 0 0 20px rgba(40, 192, 17, 0.984); */
+
+            border: 3px solid #17594A;
+            ;
+            background: linear-gradient(rgba(52, 173, 84, 0), #17594A);
+            color: white;
+        }
+
+        /* Navbar styles */
+        .navbar {
+            background-color: #17594A;
+            padding: 1rem 0;
+        }
+
+        .container {
+            max-width: 1500px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .menu {
+            list-style: none;
+            display: flex;
+        }
+
+        .menu button {
+            text-decoration: none;
+            color: white;
+            transition: color 0.3s;
+            height: 50px;
+            width: 150px;
+            margin-right: 1rem;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        .menu button:hover {
+            color: black;
+            background-color: white;
+        }
+
+        .home-footer {
+            width: auto;
+            height: auto;
+            background-color: white;
+            margin: auto auto auto auto;
+            padding: 20px;
+            position: relative;
+        }
+
+        .row {
+            max-width: 1500px;
+            margin: 0 auto;
+            display: flex;
+        }
+
+        .row button:hover {
+            transform: scale(1.05);
+            border-radius: 1rem;
+            transition: .3s;
+            border: 2px solid white;
+        }
+
+
+        .home-footer1 {
+            width: 100%;
+            height: 30px;
+            background-color: black;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+
+
+        /* .p-2 {
+            display: none;
+        } */
+        .img-fluid{
+            width: 100%;
+            height: 230px;
+        }
+        /* .icon-save i {
+        margin-right: 50px;
+        } */
+
+        .medium i {
+        margin-right: 100px;
+        }
+      #handle-load{
+        width: 100%;
+        height: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(251,252,252);
+      }
+    </style>
+
+    <script>
+        $(document).ready(function () {
+            {% if keyword %}
+            let keyword = "{{keyword}}";
+            get_posts(keyword)
+            {%else%}
+            get_posts("default")
+            {% endif %}
+        })
+        
+        function handle_load(){
+          $('#handle-load').toggleClass('d-none')
+          $('#row-konten').toggleClass('d-none')
+        }
+    // Integrasi bagian Menu MyFavorit start    
+    function get_posts(kategori, page = 1, per_page = 6) {
+    handle_load();
+
+    $.ajax({
+        type: 'GET',
+        url: `/getListGunung?kategori=${kategori}&page=${page}&per_page=${per_page}`,
+        success: function (response) {
+            if (response['result'] === 'success') {
+                $('#row-konten').empty();
+                let list_gunung = response['list_gunung'];
+                for (let i = 0; i < list_gunung.length; i++) {
+                    let gunung = list_gunung[i];
+
+                    let id_gunung = gunung['_id'];
+                    let nama_gunung = gunung['nama_gunung'];
+                    let provinsi_gunung = gunung['provinsi_gunung'];
+                    let ketinggian_gunung = gunung['ketinggian_gunung'];
+                    let gambar_gunung = gunung['gambar_gunung'];
+                    let likes = gunung['likes'];
+                    let saves = gunung['saves']
+                    let paragraph = gunung['deskripsi_umum'];
+                    paragraph = paragraph.substring(0, 150) + ' . . .';
+
+                    let temp_html = `
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="content-zoom">
+                                <section class="card bg-white">
+                                    <div class="p-2">
+                                        {% if user_role == "admin" %}
+                                        <div class="d-grid gap-1 d-md-flex justify-content-md-end">
+                                            <a href="/halaman_edit/${id_gunung}">
+                                                <button class="btn btn-warning me-md-2" type="button">
+                                                    <i class="fa fa-pencil color text-white"></i>
+                                                </button>
+                                            </a>
+                                            <button onclick="delete_konten('${id_gunung}', '${nama_gunung}')" class="btn btn-danger" type="button">
+                                                <i class="fa fa-trash color text-white"></i>
+                                            </button>
+                                        </div>
+                                        {% endif %}
+                                    </div>
+                                    <a href="/detail/${id_gunung}" style="text-decoration:none">
+                                        <img class="img-fluid" src="/static/gunung_pics/${gambar_gunung}" alt="">
+                                        <div class="p-4">
+                                            <div class="d-flex justify-content-between mb-3">
+                                                <small class="m-0"><i class="fa fa-area-chart mr-2"></i> Ketinggian : <b>${ketinggian_gunung}</b></small>
+                                                <medium class="m-0 icon-save"><i class="far fa-bookmark"></i> <b>${saves}</b></medium>
+                                                <medium class="m-0"><i class="fa fa-thumbs-o-up"></i> <b>${likes}</b>&nbsp;&nbsp;&nbsp;</medium>
+                                            </div>
+                                            <h5 class="">${nama_gunung}</h5>
+                                            ${paragraph}
+                                            <div class="border-top mt-4 pt-4">
+                                                <div class="d-flex justify-content-between">
+                                                    <h6 class="m-0"><i class="fa fa-map-marker mr-2"></i> Provinsi : ${provinsi_gunung}</small></h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </section>
+                            </div>
+                        </div>
+                    `;
+                    $('#row-konten').append(temp_html);
+                }
+
+                // Update pagination
+                let total = response['total'];
+                let pages = Math.ceil(total / per_page);
+                $('#pagination').empty();
+                for (let i = 1; i <= pages; i++) {
+                    let pageItem = `
+                        <li class="page-item ${i === page ? 'active' : ''}">
+                            <a class="page-link" href="#" data-page="${i}">${i}</a>
+                        </li>
+                    `;
+                    $('#pagination').append(pageItem);
+                }
+
+                $('#pagination .page-link').on('click', function (event) {
+                    event.preventDefault();
+                    let selectedPage = parseInt($(this).attr('data-page'));
+                    get_posts(kategori, selectedPage, per_page);
+                });
+
+            } else if (response['result'] === 'list_kosong') {
+                $('#row-konten').empty();
+                let temp_html = `
+                    <section style="width: 100%; height: 400px; padding: 10%; background-color:whitesmoke;">
+                        <h3 style="text-align: center;">Daftar gunung yang disimpan belum tersedia<h3>
+                    </section>
+                `;
+                $('#row-konten').append(temp_html);
+            } else {
+                window.location.href = '/halaman_gagal';
+            }
+            handle_load();
+        }
+    });
+}
+        function search(keyword) {
+            window.location.href = `/search?keyword=${keyword}`
+        }
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                search($('#search').val());
+            }
+        }
+
+        function logout() {
+            $.removeCookie('mytoken', { path: '/' })
+            Swal.fire({
+                title: "Anda telah logout",
+                text: "Kami menanti kedatanganmu kembali 😊",
+                icon: "success",
+                showConfirmButton: false,
+                timer: 3000
+            });
+
+            // Menunda pengalihan halaman selama 3 detik
+            setTimeout(function () {
+                window.location.href = '/halaman_login';
+            }, 3000);
+        }
+
+        function delete_konten(id_konten, nama_konten) {
+            let id_gunung = id_konten
+            let nama_gunung = nama_konten
+            Swal.fire({
+                title: "Anda yakin?",
+                text: `Akan menghapus ${nama_gunung}!`,
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: `Ya, hapus konten!`
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        type: 'POST',
+                        url: '/delete_gunung',
+                        data: { id_gunung_give: id_gunung },
+                        success: function (response) {
+                            if (response['result'] === 'success') {
+                                Swal.fire({
+                                    title: "Deleted!",
+                                    text: response['msg'],
+                                    icon: "success",
+                                    showConfirmButton: false,
+                                    timer: 3000
+                                });
+                                // Menunda pengalihan halaman selama 3 detik
+                                setTimeout(function () {
+                                    window.location.href = '/';
+                                }, 3000);
+                            }
+                        }
+                    })
+                }
+            });
+        }
+
+        // Integrasi bagian Menu MyFavorit start
+        function get_save(save, page = 1, per_page = 6) {
+    handle_load();
+
+    $.ajax({
+        type: 'GET',
+        url: `/getListGunung?save=${save}&page=${page}&per_page=${per_page}`,
+        success: function (response) {
+            if (response['result'] === 'success') {
+                $('#row-konten').empty();
+                let list_gunung = response['list_gunung'];
+                if (list_gunung.length > 0) {
+                    for (let i = 0; i < list_gunung.length; i++) {
+                        let gunung = list_gunung[i];
+
+                        let id_gunung = gunung['_id'];
+                        let nama_gunung = gunung['nama_gunung'];
+                        let provinsi_gunung = gunung['provinsi_gunung'];
+                        let ketinggian_gunung = gunung['ketinggian_gunung'];
+                        let gambar_gunung = gunung['gambar_gunung'];
+                        let saves = gunung['saves'];
+                        let likes = gunung['likes'];
+                        let paragraph = gunung['deskripsi_umum'];
+                        paragraph = paragraph.substring(0, 150) + ' . . .';
+
+                        let temp_html = `
+                            <div class="col-lg-4 col-md-6 mb-4">
+                                <div class="content-zoom">
+                                    <section class="card bg-white">
+                                        <div class="p-2">
+                                            {% if user_role == "admin" %}
+                                            <div class="d-grid gap-1 d-md-flex justify-content-md-end">
+                                                <a href="/halaman_edit/${id_gunung}">
+                                                    <button class="btn btn-warning me-md-2" type="button">
+                                                        <i class="fa fa-pencil color text-white"></i>
+                                                    </button>
+                                                </a>
+                                                <button onclick="delete_konten('${id_gunung}', '${nama_gunung}')" class="btn btn-danger" type="button">
+                                                    <i class="fa fa-trash color text-white"></i>
+                                                </button>
+                                            </div>
+                                            {% endif %}
+                                        </div>
+                                        <a href="/detail/${id_gunung}" style="text-decoration:none">
+                                            <img class="img-fluid" src="/static/gunung_pics/${gambar_gunung}" alt="">
+                                            <div class="p-4">
+                                                <div class="d-flex justify-content-between mb-3">
+                                                    <small class="m-0"><i class="fa fa-area-chart mr-2"></i> Ketinggian : <b>${ketinggian_gunung}</b></small>
+                                                    <medium class="m-0 icon-save"><i class="far fa-bookmark"></i> <b>${saves}</b></medium>
+                                                    <medium class="m-0"><i class="fa fa-thumbs-o-up"></i> <b>${likes}</b>&nbsp;&nbsp;&nbsp;</medium>
+                                                    
+                                                </div>
+                                                <h5 class="">${nama_gunung}</h5>
+                                                ${paragraph}
+                                                <div class="border-top mt-4 pt-4">
+                                                    <div class="d-flex justify-content-between">
+                                                        <h6 class="m-0"><i class="fa fa-map-marker mr-2"></i> Provinsi : ${provinsi_gunung}</small></h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </section>
+                                </div>
+                            </div>
+                        `;
+                        $('#row-konten').append(temp_html);
+                    }
+
+                    // Update pagination
+                    let total = response['total'];
+                    let pages = Math.ceil(total / per_page);
+                    $('#pagination').empty();
+                    for (let i = 1; i <= pages; i++) {
+                        let pageItem = `
+                            <li class="page-item ${i === page ? 'active' : ''}">
+                                <a class="page-link" href="#" data-page="${i}">${i}</a>
+                            </li>
+                        `;
+                        $('#pagination').append(pageItem);
+                    }
+
+                    $('#pagination .page-link').on('click', function (event) {
+                        event.preventDefault();
+                        let selectedPage = parseInt($(this).attr('data-page'));
+                        get_save(save, selectedPage, per_page);
+                    });
+                } else {
+                    $('#row-konten').append(`
+                        <section style="width: 100%; height: 400px; padding: 10%; background-color:whitesmoke;">
+                            <h3 style="text-align: center;">Belum ada daftar gunung yang sudah disimpan<h3>
+                        </section>
+                    `);
+                    $('#pagination').empty();
+                }
+
+            } else if (response['result'] === 'list_kosong') {
+                $('#row-konten').empty();
+                let temp_html = `
+                    <section style="width: 100%; height: 400px; padding: 10%; background-color:whitesmoke;">
+                        <h3 style="text-align: center;">Belum ada daftar gunung yang sudah disimpan<h3>
+                    </section>
+                `;
+                $('#row-konten').append(temp_html);
+                $('#pagination').empty();
+            } else {
+                window.location.href = '/halaman_gagal';
+            }
+            handle_load();
+        }
+    });
+}
+// Integrasi bagian Menu MyFavorit end
+
+    </script>
+
+</head>
+
+<body>
+  <nav class="navbar sticky-top">
+        <div class="container">
+            <div class="brand">
+                <img src="static/l-white.png" alt="" width="237px" height="62px">
+            </div>
+            <ul class="menu px-2">
+                <button onclick="window.location.href='/'" type="button" class="btn btn-outline-light">Home</button>
+                <button onclick="logout()" type="button" class="btn btn-outline-light">Logout</button>
+                <!-- <li><button type="button" class="btn btn-primary btn-lg">Large button</button></li>
+                <li><button class="btn btn" href="#home">Home</button></li> -->
+        </div>
+        </ul>
+        </div>
+    </nav>
+
+    <div class="text-center mb-3 pb-3 mt-5">
+        <h6 class="text-success text-uppercase" style="letter-spacing: 5px;">Discover</h6>
+        <h2>New Journey Accross Nusantara Mountains 🏔️🧗‍♀️</h2>
+    </div>
+    <center>
+        <div class="col-md-6 mt-4 mb-4">
+            <div class="mb-3 mb-md-0 ">
+                <div class="form-input">
+                    <input type="search" id="search" placeholder="SEARCH" onkeypress="handleKeyPress(event)">
+                    <button onclick="search($('#search').val())" type="submit" class="search-btn"><i
+                            class='bx bx-search'></i></button>
+                </div>
+            </div>
+        </div>
+    </center>
+    <br>
+
+    <div class="konten-gunung">
+        <div class="row">
+            <div class="col-2 ">
+                <button onclick="get_save('bookmark')" type="button" class="btn btn-primary btn-lg mb-4"><i
+                        class="fa fa-bookmark text-white"></i> MyFavorit</button>
+            </div>
+            <div class="col-2 ">
+                <button onclick="get_posts('favorit')" type="button" class="btn btn-primary btn-lg mb-4"><i
+                        class="fa fa-filter text-white"></i> MostPopular</button>
+            </div>
+       
+            <div class="col-4 text-center">
+                {%if user_role == "admin"%}
+                <a href="/halaman_tambah"><button type="button" class="btn btn-success btn-lg mb-4"> Tambah Data
+                        +</button></a>
+                {%endif%}
+            </div>
+        </div>
+        <div class="d-none" id="handle-load">
+          <div class="spinner-border text-success" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
+        <div class="row" id="row-konten">
+            
+
+            <!-- CONTENT BLOG -->
+
+            <!-- <div class="col-lg-4 col-md-6 mb-4">
+                <div class="content-zoom" onclick="kedetail()">
+                    <section class="package-item bg-white mb-2 shadow bg-body rounded ">
+                        <div class="p-2 ">
+                            <div class="d-grid gap-1 d-md-flex justify-content-md-end">
+                                <button class="btn btn-warning me-md-2" type="button"><i
+                                        class="fa fa-pencil color text-white"></i></button>
+                                <button class="btn btn-danger" type="button"><i
+                                        class="fa fa-trash color text-white"></i></button>
+                            </div>
+                        </div>
+                        <img class="img-fluid"
+                            src="https://images.unsplash.com/photo-1592741217769-2d961d29102c?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            alt="">
+                        <div class="p-4">
+                            <div class="d-flex justify-content-between mb-3">
+                                <small class="m-0"><i class="fa fa-calendar-alt mr-2"></i> Tanggal</small>
+                                <small class="m-0"></small>
+                                <small class="m-0"><i class="fa fa-thumbs-o-up mr-2"></i> 2 Person</small>
+                            </div>
+                            <h5 class="">Nama Gunung</h5>
+                            <p class="m-0">Magna sit magna dolor duo dolor labore rebum amet elitr est diam sea</p>
+                            <div class="border-top mt-4 pt-4">
+                                <div class="d-flex justify-content-between">
+                                    <h6 class="m-0"><i class="fa fa-map-marker mr-2"></i> Provinsi : </small></h6>
+                                    <small class="m-0">Ketinggian : </small>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div> -->
+
+
+        </div>
+        <div id="row-konten" class="row"></div>
+<nav>
+    <ul id="pagination" class="pagination justify-content-center"></ul>
+</nav>
+    </div>
+
+    <!-- <div class="text-center mb-3 pb-3 mt-5">
+        <h6 class="text-success text-uppercase" style="letter-spacing: 5px;">Review</h6>
+        <h2>Comments Here 👌👌</h2>
+    </div>
+    <center>
+        <div class="col-md-6 mt-4 bg-white">
+            <div class="mb-3 mb-md-0">
+                <form>
+                    <div class="row g-3">
+                        <div class="col-12 col-sm-12">
+                            <div class="form-floating mb-1">
+                                <input type="text" class="form-control" id="floatingInput"
+                                    placeholder="Username">
+                                <label for="floatingInput">Username</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-floating">
+                                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
+                                    style="height: 200px"></textarea>
+                                <label for="floatingTextarea2">Comments</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <button class="btn btn-success w-100 py-3" type="submit">Leave Your Comment</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </center>
+    <br> -->
+
+    <footer class="home-footer mt-5">
+        <div class="row">
+            <!-- <div class="col-8" style="background-color: #6DB9EF;"> -->
+            <img alt="logo" src="static/footer.png" class="col-8 mt-2" width="auto"
+                style="align-items: center; object-fit: contain;" />
+            <!-- </div> -->
+            <!-- <div class="col-1 text-center">
+            </div> -->
+            <div class="col 4 - text text-center">
+                <b>Group 8 CISCO</b> <br>
+                Arif Dwi Prasetya <br>
+                Rifki Achmad Fahriza <br>
+                Muhamad Randy Aranda <br>
+                Jonathan Natanael Salakay <br>
+            </div>
+        </div>
+    </footer>
+    <footer class="home-footer1">
+        <span class="home-text11">
+            © Develop by StudentX | Part of LearningX
+        </span>
+    </footer>
+
+
+</body>
+
+</html>

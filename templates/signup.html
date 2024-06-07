@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='icon.png') }}" type="image/x-ico">
+    <meta property="og:title" content="Puncak Nusantara - Back to Nature">
+    <meta property="og:description" content="Website pencarian informasi gunung di Indonesia">
+    <meta property="og:image"
+        content="https://cdn.glitch.global/3218ab93-5733-493a-9b72-e7d09f4e3460/og_image.jpg?v=1702702758494">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puncak Nusantara</title>
+
+    <!-- Bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- Bootstrap icon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <!-- Sweet alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- font family -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;800&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        main {
+            display: flex;
+            height: 100vh;
+        }
+
+        .picture {
+            flex: 1;
+            background-image: url(static/bg_gunung.jpg);
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .filter {
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .card {
+            width: 30%;
+            height: 100%;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+            z-index: 1;
+            padding: 20px;
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+            background-color: #fff;
+        }
+
+        .card-input {
+            width: 100%;
+            height: 400px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            border-radius: 1rem;
+            box-shadow: 0 0 20px rgba(208, 208, 208, 0.984);
+        }
+
+        .logo img {
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+            margin-bottom: 40px;
+        }
+
+        .logomb img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            margin-top: 40px;
+        }
+
+        h3 {
+            color: #333;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            font-weight: bold;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .input-group {
+            margin-bottom: 10px;
+            height: 10%;
+        }
+
+        .input-group-text {
+            background-color: #28a745;
+            color: white;
+            border: none;
+        }
+
+        .icon {
+            font-size: 1.2rem;
+        }
+
+        .form-control {
+            border-radius: 5px;
+        }
+
+        .signup-link {
+            margin-top: 10px;
+            text-align: center;
+            color: #6c757d;
+        }
+
+        .btn-outline-success {
+            background-color: #28a745;
+            color: white;
+            border: 1px solid #28a745;
+            transition: 0.2s;
+        }
+
+        .btn-outline-success:hover {
+            background-color: #218838;
+            border: 1px solid #218838;
+        }
+
+        .signup-link a {
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        p {
+            background-color: white;
+            padding: 9px;
+        }
+
+        @media (max-width: 768px) {
+            .picture {
+                display: none;
+            }
+
+            .card {
+                width: 80%;
+                margin-top: 20px;
+                /* Menambahkan margin atas agar tidak terlalu rapat dengan atas layar */
+            }
+
+            .card-input {
+                height: auto;
+            }
+
+            .logo img {
+                max-width: 150px;
+                margin-bottom: 20px;
+                /* Mengurangi margin bottom agar tidak terlalu besar di mobile */
+            }
+
+            .logomb img {
+                max-width: 200px;
+                margin-top: 20px;
+                /* Mengurangi margin top agar tidak terlalu besar di mobile */
+            }
+
+            h3 {
+                font-size: 1.2em;
+                /* Mengurangi ukuran font untuk mobile */
+            }
+
+            .btn-outline-success {
+                padding: 10px;
+                /* Menambahkan padding agar tombol lebih besar */
+                font-size: 1em;
+                /* Mengurangi ukuran font untuk mobile */
+            }
+        }
+
+        @media (max-width: 1024px) {
+
+            /* Aturan CSS untuk responsif pada layar iPad mode lanskap */
+            .picture {
+                display: none;
+            }
+
+            .card {
+                width: 80%;
+                margin-top: 20px;
+            }
+
+            .card-input {
+                height: auto;
+            }
+
+            .logo img {
+                max-width: 150px;
+                margin-bottom: 20px;
+            }
+
+            .logomb img {
+                max-width: 200px;
+                margin-top: 20px;
+            }
+
+            h3 {
+                font-size: 1.2em;
+            }
+
+            .btn-outline-success {
+                padding: 10px;
+                font-size: 1em;
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            /* Aturan CSS untuk responsif pada layar iPad mode potret dan ukuran layar yang lebih kecil */
+            .picture {
+                display: none;
+            }
+
+            .card {
+                width: 80%;
+                margin-top: 20px;
+            }
+
+            .card-input {
+                height: auto;
+            }
+
+            .logo img {
+                max-width: 150px;
+                margin-bottom: 20px;
+            }
+
+            .logomb img {
+                max-width: 200px;
+                margin-top: 20px;
+            }
+
+            h3 {
+                font-size: 1.2em;
+            }
+
+            .btn-outline-success {
+                padding: 10px;
+                font-size: 1em;
+            }
+        }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+    <script>
+        function is_email(asValue) {
+            var regExp = /\S+@\S+\.\S+/;
+            return regExp.test(asValue);
+        }
+
+        function is_password(asValue) {
+            var regExp = /^(?=.*\d)(?=.*[a-zA-Z])[0-9a-zA-Z!@#$%^&*]{8,20}$/
+            return regExp.test(asValue)
+        }
+
+
+        function sign_up() {
+            let useremail = $('#email').val()
+            let username = $('#username').val()
+            let password = $('#password').val()
+
+            if (!is_email(useremail)) {
+                $("#useremail").addClass('is-invalid')
+                $("#alert_email").removeClass('d-none')
+                return
+            } else if (username == "") {
+                $("#username").addClass('is-invalid')
+
+                $("#useremail").removeClass('is-invalid')
+                $("#alert_email").addClass('d-none')
+                return
+            } else if (!is_password(password)) {
+                $("#password").addClass('is-invalid')
+                $("#alert_password").removeClass('d-none')
+
+                $("#username").removeClass('is-invalid')
+                $("#useremail").removeClass('is-invalid')
+                $("#alert_email").addClass('d-none')
+                return
+            } else {
+                $("#username").removeClass('is-invalid')
+                $("#useremail").removeClass('is-invalid')
+                $("#password").removeClass('is-invalid')
+                $("#alert_email").addClass('d-none')
+                $("#alert_password").addClass('d-none')
+            }
+
+            $.ajax({
+                type: 'POST',
+                url: '/sign_up/check_email',
+                data: {
+                    useremail_give: useremail
+                },
+                success: function (response) {
+                    if (response['exists']) {
+                        Swal.fire({
+                            icon: "warning",
+                            title: "Maaf, Email sudah terpakai",
+                            showConfirmButton: false,
+                            timer: 2000
+                        });
+                        return
+                    } else {
+                        $.ajax({
+                            type: 'POST',
+                            url: '/sign_up/save',
+                            data: {
+                                useremail_give: useremail,
+                                username_give: username,
+                                password_give: password
+                            },
+                            success: function (response) {
+                                if (response['result'] === "success") {
+                                    Swal.fire({
+                                        title: "Yey, Berhasil Membuat Akun!",
+                                        text: "Kembali ke halaman login!",
+                                        icon: "success",
+                                        showConfirmButton: false,
+                                        timer: 3000
+                                    });
+
+                                    // Menunda pengalihan halaman selama 3 detik
+                                    setTimeout(function () {
+                                        window.location.href = '/halaman_login';
+                                    }, 3000);
+                                }
+                            }
+                        })
+                    }
+                }
+            })
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                sign_up();
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <main>
+        <section class="picture">
+            <div class="filter"></div>
+        </section>
+        <section class="card">
+            <div class="logo">
+                <img src="static/l-white2.png" alt="Logo">
+            </div>
+            <div class="card-input">
+                <h3>Sign Up</h3>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-envelope icon"></i></span>
+                    <input type="email" class="form-control" id="email" placeholder="name@example.com"><br>
+                </div>
+                <p id="alert_email"
+                    style="margin:0 0 0 2%; color:red; font-size: x-small;font-weight:bold; display: block;"
+                    class="d-none">Format email anda tidak valid</p>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-person-circle icon"></i></span>
+                    <input type="text" class="form-control" id="username" placeholder="Username">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-key icon"></i></span>
+                    <input type="password" class="form-control is-key" id="password" placeholder="Password"
+                        onkeypress="handleKeyPress(event)"><br>
+                    <p id="alert_password" style="margin:1% 0 0 2% ;color:red;font-size: x-small;font-weight:bold;"
+                        class="d-none">Pasword harus terdiri dari 8 - 20 karakter yang mengandung huruf besar atau
+                        kecil, angka, dan boleh mengandung karakter (!@#$%^&*)</p>
+                </div>
+                <br>
+                <br>
+                <hr>
+                <button onclick="sign_up()" class="btn btn-outline-success mt-2 mb-1">Sign Up</button>
+                <a href="/"><button class="btn btn-secondary" style="width: 100%;">Close</button></a>
+            </div>
+            <div class="logomb">
+                <img src="static/footerlg.png" alt="Logo">
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='icon.png') }}" type="image/x-ico">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- Botstrap cdn -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+        </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+        integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous">
+        </script>
+
+    <!--  -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+        </script>
+    <!-- font family -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+    <!-- Libraries Stylesheet -->
+    <!-- <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" /> -->
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Puncak Nusantara</title>
+    <style>
+        body {
+            background-color: #f3f4f5;
+        }
+
+        /* search */
+        .form-input {
+            display: flex;
+            align-items: center;
+            height: 60px;
+        }
+
+        .form-input input {
+            flex-grow: 1;
+            padding: 0 16px;
+            height: 100%;
+            border: none;
+            background: white;
+            border-radius: 36px 0 0 36px;
+            outline: none;
+            width: 100%;
+            color: black;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .form-input button {
+            width: 100px;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #17594A;
+            color: white;
+            font-size: 30px;
+            border: none;
+            outline: none;
+            border-radius: 0 36px 36px 0;
+            cursor: pointer;
+        }
+
+        /* search */
+
+
+        /* Navbar styles */
+        .navbar {
+            background-color: #17594A;
+            padding: 1rem 0;
+        }
+
+        .container {
+            max-width: 1500px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .menu {
+            list-style: none;
+            display: flex;
+        }
+
+        .menu button {
+            text-decoration: none;
+            color: white;
+            transition: color 0.3s;
+            height: 50px;
+            width: 150px;
+            margin-right: 1rem;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        .menu button:hover {
+            color: black;
+            background-color: white;
+        }
+
+        .home-footer {
+            width: auto;
+            height: auto;
+            background-color: white;
+            margin: auto auto auto auto;
+            padding: 20px;
+            position: relative;
+        }
+
+        .row {
+            max-width: 1500px;
+            margin: 0 auto;
+            display: flex;
+        }
+
+
+
+        .row button:hover {
+            transform: scale(1.05);
+            border-radius: 1rem;
+            transition: .3s;
+            border: 2px solid white;
+        }
+
+
+        .home-footer1 {
+            width: 100%;
+            height: 30px;
+            background-color: black;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        .konten-gunung {
+            width: 100%;
+            height: auto;
+            margin: auto auto auto auto;
+            padding: 10px;
+            background-size: cover;
+            min-height: 10vh;
+
+            /* background-color: white; */
+            background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://images.unsplash.com/photo-1592741217769-2d961d29102c?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+        }
+
+        h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 40px;
+        }
+
+        h6 {
+            font-size: 20px;
+        }
+
+
+        .error {
+            width: 90%;
+            height: 300px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: rgb(255, 255, 255);
+            border-radius: 5px;
+            border: 5px solid rgba(156, 156, 156, 0.555);
+            text-align: center;
+            align-content: center;
+            align-items: center;
+        }
+
+        .none {
+            text-align: center;
+            align-self: center;
+            justify-content: center;
+            align-content: center;
+        }
+    </style>
+    <script>
+        function search(keyword) {
+            window.location.href = `/search?keyword=${keyword}`
+        }
+    </script>
+</head>
+
+<body>
+
+    <nav class="navbar sticky-top">
+        <div class="container">
+            <div class="brand">
+                <img src="static/l-white.png" alt="" width="237px" height="62px">
+            </div>
+            <ul class="menu px-2">
+                <button onclick="window.location.href='/'" type="button" class="btn btn-outline-light">Home</button>
+                <button type="button" class="btn btn-outline-light">Logout</button>
+        </div>
+        </ul>
+        </div>
+    </nav>
+
+    <center>
+        <div class="col-md-6 mt-5 mb-5 ">
+            <div class="mb-3 mb-md-0 ">
+                <div class="form-input justify-content-center">
+                    <input type="search" placeholder="SEARCH" id="search">
+                    <button onclick="search($('#search').val())" type="submit" class="search-btn"><i
+                            class='bx bx-search'></i></button>
+                </div>
+            </div>
+        </div>
+    </center>
+
+    <div class="konten-gunung">
+        <div class="error">
+            <h2 class="emote mt-5">🤔🧐🤔🧐</h2>
+            <h2 class="none mt-5">Upss.. Hasil pencarian Anda tidak Ditemukan</h2>
+        </div>
+    </div>
+
+    <footer class="home-footer">
+        <div class="row">
+            <img alt="logo" src="static/footer.png" class="col-8 mt" width="auto"
+                style="align-items: center; object-fit: contain;" />
+            <div class="col 4 - text text-center">
+                <b>Group 8 CISCO</b> <br>
+                Arif Dwi Prasetya <br>
+                Rifki Achmad Fahriza <br>
+                Muhamad Randy Aranda <br>
+                Jonathan Natanael Salakay <br>
+            </div>
+        </div>
+    </footer>
+    <footer class="home-footer1">
+        <span class="home-text11">
+            © Develop by StudentX | Part of LearningX
+        </span>
+    </footer>
+
+    <!-- CDN JS Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+        </script>
+</body>
+
+</html>

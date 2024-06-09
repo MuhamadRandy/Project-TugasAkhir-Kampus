@@ -488,6 +488,23 @@
                 window.location.href = '/halaman_login';
             }, 3000);
         }
+        document.addEventListener('DOMContentLoaded', function () {
+        document.getElementById('jalurForm').addEventListener('submit', function(event) {
+            let jalur = document.getElementById('jalur').value;
+            let kesulitan = document.getElementById('kesulitan').value;
+            let estimasi = document.getElementById('estimasi').value;
+
+            if (!jalur || !kesulitan || !estimasi) {
+                event.preventDefault(); // Mencegah form submit
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Data Tidak Lengkap',
+                    text: 'Harap isi semua field.',
+                    confirmButtonText: 'OK'
+                });
+            }
+        });
+    });
     </script>
 </head>
 
@@ -722,38 +739,33 @@
                     </div>
                     <div class="col-12 mb-4">
                         {%if user_role == "admin"%}
-                        <button type="button" class="btn btn-primary text-center" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal">
+                        <button type="button" class="btn btn-primary text-center" data-bs-toggle="modal" data-bs-target="#exampleModal">
                             Tambah Data
                         </button>
                         {%endif%}
-
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                            aria-hidden="true">
+                
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        <form action="/tambah_jalur/{{info_gunung._id}}" method="post">
+                                        <form id="jalurForm" action="/tambah_jalur/{{info_gunung._id}}" method="post">
                                             <div class="mb-3">
                                                 <label for="jalur" class="form-label">Jalur</label>
                                                 <input type="text" class="form-control" id="jalur" name="jalur" />
                                             </div>
                                             <div class="mb-3">
-                                                <label for="kesulitan" class="form-label">tingkat
-                                                    kesulitan</label>
-                                                <input type="text" class="form-control" id="kesulitan"
-                                                    name="kesulitan" />
+                                                <label for="kesulitan" class="form-label">Tingkat Kesulitan</label>
+                                                <input type="text" class="form-control" id="kesulitan" name="kesulitan" />
                                             </div>
                                             <div class="mb-3">
-                                                <label for="estimasi" class="form-label">estimasi</label>
+                                                <label for="estimasi" class="form-label">Estimasi</label>
                                                 <input type="text" class="form-control" id="estimasi" name="estimasi" />
                                             </div>
-
+                
                                             <button type="submit" class="btn btn-primary">Submit</button>
                                         </form>
                                     </div>
@@ -764,7 +776,7 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th scope="col">Nama jalur</th>
+                                <th scope="col">Nama Jalur</th>
                                 <th scope="col">Tingkatan</th>
                                 <th scope="col">Estimasi</th>
                                 {%if user_role == "admin"%}
@@ -780,24 +792,24 @@
                                 <td>{{i.estimasi}}</td>
                                 {%if user_role == "admin"%}
                                 <td>
-                                    <a
-                                        onclick='updateModal({{i.uuid | tojson}},{{i.jalur | tojson}},{{i.kesulitan | tojson}},{{i.estimasi | tojson}})'><button
-                                            class="btn btn-warning me-md-2" type="button"><i
-                                                class="fa fa-pencil color text-white"></i></button></a>
-                                    <a onclick='delete_jalur({{i.uuid | tojson}},{{i.jalur | tojson}})'><button
-                                            class="btn btn-danger me-md-2" type="button"><i
-                                                class="fa fa-trash color text-white"></i></button></a>
+                                    <a onclick='updateModal({{i.uuid | tojson}},{{i.jalur | tojson}},{{i.kesulitan | tojson}},{{i.estimasi | tojson}})'>
+                                        <button class="btn btn-warning me-md-2" type="button">
+                                            <i class="fa fa-pencil color text-white"></i>
+                                        </button>
+                                    </a>
+                                    <a onclick='delete_jalur({{i.uuid | tojson}},{{i.jalur | tojson}})'>
+                                        <button class="btn btn-danger me-md-2" type="button">
+                                            <i class="fa fa-trash color text-white"></i>
+                                        </button>
+                                    </a>
                                 </td>
                                 {%endif%}
                             </tr>
-
                             {% endfor %}
                         </tbody>
                     </table>
-
-
                 </div>
-                </form>
+                
 
                 <!-- Jalur pendaki end -->
                 <div class="mb-5">

@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link rel="shortcut icon" href="{{ url_for('static', filename='icon.png') }}" type="image/x-ico">
     <meta property="og:title" content="Puncak Nusantara - Back to Nature">
     <meta property="og:description" content="Website pencarian informasi gunung di Indonesia">
-    <meta property="og:image" content="https://cdn.glitch.global/3218ab93-5733-493a-9b72-e7d09f4e3460/og_image.jpg?v=1702702758494">
+    <meta property="og:image"
+        content="https://cdn.glitch.global/3218ab93-5733-493a-9b72-e7d09f4e3460/og_image.jpg?v=1702702758494">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Puncak Nusantara</title>
     <!-- Bootstrap CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <!-- Bootstrap icon -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <!-- Sweet alert -->
@@ -21,190 +24,195 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;800&display=swap" rel="stylesheet">
     <style>
         body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Arial', sans-serif;
-    background-color: #f8f9fa;
-    overflow: hidden; /* Prevent scrolling */
-}
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            overflow: hidden;
+            /* Prevent scrolling */
+        }
 
-main {
-    display: flex;
-    height: 100vh;
-    overflow: hidden; /* Prevent scrolling */
-}
+        main {
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+            /* Prevent scrolling */
+        }
 
-.picture {
-    flex: 1;
-    background-image: url(static/bg_gunung.jpg);
-    background-size: cover;
-    background-position: center;
-    position: relative;
-}
+        .picture {
+            flex: 1;
+            background-image: url(static/bg_gunung.jpg);
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
 
-.filter {
-    width: 100%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.2);
-}
+        .filter {
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.2);
+        }
 
-.card {
-    width: 30%;
-    height: 100%;
-    background: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-    z-index: 1;
-    padding: 20px;
-    border-radius: 10px;
-    position: relative;
-    overflow: hidden;
-    background-color: #fff;
-    transform: scale(1.1); /* Adjust this to fit your design */
-}
+        .card {
+            width: 30%;
+            height: 100%;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+            z-index: 1;
+            padding: 20px;
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+            background-color: #fff;
+            transform: scale(1.1);
+            /* Adjust this to fit your design */
+        }
 
-.card-input {
-    width: 100%;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    border-radius: 1rem;
-    box-shadow: 0 0 20px rgba(208, 208, 208, 0.984);
-}
+        .card-input {
+            width: 100%;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            border-radius: 1rem;
+            box-shadow: 0 0 20px rgba(208, 208, 208, 0.984);
+        }
 
-.logo img {
-    width: 100%;
-    max-width: 200px;
-    height: auto;
-    margin-bottom: 40px;
-}
+        .logo img {
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+            margin-bottom: 40px;
+        }
 
-.logomb img {
-    width: 100%;
-    max-width: 300px;
-    height: auto;
-    margin-top: 40px;
-}
+        .logomb img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            margin-top: 40px;
+        }
 
-h3 {
-    color: #333;
-    font-size: 1.5em;
-    margin-bottom: 20px;
-    font-weight: bold;
-    font-family: 'Poppins', sans-serif;
-}
+        h3 {
+            color: #333;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            font-weight: bold;
+            font-family: 'Poppins', sans-serif;
+        }
 
-.input-group {
-    margin-bottom: 10px;
-    height: 15%;
-}
+        .input-group {
+            margin-bottom: 10px;
+            height: 15%;
+        }
 
-.input-group-text {
-    background-color: #28a745;
-    color: white;
-    border: none;
-}
+        .input-group-text {
+            background-color: #28a745;
+            color: white;
+            border: none;
+        }
 
-.icon {
-    font-size: 1.2rem;
-}
+        .icon {
+            font-size: 1.2rem;
+        }
 
-.form-control {
-    border-radius: 5px;
-}
+        .form-control {
+            border-radius: 5px;
+        }
 
-.btn-outline-success {
-    background-color: #28a745;
-    color: white;
-    border: 1px solid #28a745;
-    transition: 0.2s;
-}
+        .btn-outline-success {
+            background-color: #28a745;
+            color: white;
+            border: 1px solid #28a745;
+            transition: 0.2s;
+        }
 
-.btn-outline-success:hover {
-    background-color: #218838;
-    border: 1px solid #218838;
-}
+        .btn-outline-success:hover {
+            background-color: #218838;
+            border: 1px solid #218838;
+        }
 
-.signup-link {
-    margin-top: 10px;
-    text-align: center;
-    color: #6c757d;
-}
+        .signup-link {
+            margin-top: 10px;
+            text-align: center;
+            color: #6c757d;
+        }
 
-.signup-link a {
-    color: #28a745;
-    font-weight: bold;
-}
+        .signup-link a {
+            color: #28a745;
+            font-weight: bold;
+        }
 
-@media (max-width: 768px) {
-    .picture {
-        display: none;
-    }
+        @media (max-width: 768px) {
+            .picture {
+                display: none;
+            }
 
-    .card {
-        width: 80%;
-    }
+            .card {
+                width: 80%;
+            }
 
-    .card-input {
-        padding: 10px;
-    }
+            .card-input {
+                padding: 10px;
+            }
 
-    .logo img {
-        max-width: 150px;
-    }
+            .logo img {
+                max-width: 150px;
+            }
 
-    .logomb img {
-        max-width: 200px;
-    }
+            .logomb img {
+                max-width: 200px;
+            }
 
-    h3 {
-        font-size: 1.2em;
-    }
+            h3 {
+                font-size: 1.2em;
+            }
 
-    .btn-outline-success {
-        padding: 5px;
-        font-size: 0.9em;
-    }
-}
+            .btn-outline-success {
+                padding: 5px;
+                font-size: 0.9em;
+            }
+        }
 
-@media (min-width: 769px) and (max-width: 1024px) {
-    .picture {
-        display: none;
-    }
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .picture {
+                display: none;
+            }
 
-    .card {
-        width: 50%;
-        transform: scale(1.2);
-    }
+            .card {
+                width: 50%;
+                transform: scale(1.2);
+            }
 
-    .card-input {
-        padding: 15px;
-    }
+            .card-input {
+                padding: 15px;
+            }
 
-    .logo img {
-        max-width: 180px;
-    }
+            .logo img {
+                max-width: 180px;
+            }
 
-    .logomb img {
-        max-width: 250px;
-    }
+            .logomb img {
+                max-width: 250px;
+            }
 
-    h3 {
-        font-size: 1.4em;
-    }
+            h3 {
+                font-size: 1.4em;
+            }
 
-    .btn-outline-success {
-        padding: 10px;
-        font-size: 1em;
-    }
-}
+            .btn-outline-success {
+                padding: 10px;
+                font-size: 1em;
+            }
+        }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
     <script>
         function login() {
@@ -231,7 +239,16 @@ h3 {
                 },
                 success: function (response) {
                     if (response['result'] == 'success') {
-                        $.cookie("mytoken", response["token"], { path: "/" });
+                        $.cookie("mytoken", response["token"], {
+                            path: "/"
+                        });
+                        Swal.fire({
+                            title: "Selamat datang!",
+                            text: "Anda berhasil masuk.",
+                            icon: "success",
+                            showConfirmButton: false,
+                            timer: 3000
+                        });
                         window.location.replace("/");
                     } else {
                         let msg = response['msg'] || 'Email atau Password Anda Salah!';
@@ -240,7 +257,7 @@ h3 {
                             text: msg,
                             icon: "warning",
                             showConfirmButton: false,
-                            timer: 2000
+                            timer: 5000
                         });
                     }
                 }
@@ -254,6 +271,7 @@ h3 {
         }
     </script>
 </head>
+
 <body>
     <main>
         <section class="picture">
@@ -271,7 +289,8 @@ h3 {
                 </div>
                 <div class="input-group">
                     <span class="input-group-text"><i class="bi bi-lock icon"></i></span>
-                    <input type="password" class="form-control is-key" id="password" placeholder="Password" onkeypress="handleKeyPress(event)">
+                    <input type="password" class="form-control is-key" id="password" placeholder="Password"
+                        onkeypress="handleKeyPress(event)">
                 </div>
                 <button onclick="login()" class="btn btn-outline-success">Login</button>
                 <div class="signup-link">Belum punya akun? <a href="/halaman_signup">Sign Up</a></div>
@@ -282,4 +301,5 @@ h3 {
         </section>
     </main>
 </body>
+
 </html>
